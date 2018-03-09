@@ -1,10 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="@summer">
+    <title>Knowledgebase</title>
+    <meta name="description" content="A quick reference guide (cheat sheet) for Laravel 5.1 LTS, listing artisan, composer, routes and other useful bits of information.We intend to build this Cheat Sheet more assessable and user friendly, you can view it with modern desktop :computer: browser and mobile device :iphone: .">
+    <meta name="keywords" content="Laravel 5.1 Artisan,Laravel 5.1 Auth,Laravel 5.1 Blade,Laravel 5.1 Cache,Laravel 5.1 Composer,Laravel 5.1 Config,Laravel 5.1 Container,Laravel 5.1 Cookie,Laravel 5.1 DB,Laravel 5.1 Environment,Laravel 5.1 Event,Laravel 5.1 File,Laravel 5.1 Form,Laravel 5.1 HTML,Laravel 5.1 Helper,Laravel 5.1 Input,Laravel 5.1 Lang,Laravel 5.1 Log,Laravel 5.1 Mail,Laravel 5.1 Model,Laravel 5.1 Pagination,Laravel 5.1 Queue,Laravel 5.1 Redirect,Laravel 5.1 Request,Laravel 5.1 Response,Laravel 5.1 Route,Laravel 5.1 SSH,Laravel 5.1 Schema,Laravel 5.1 Security,Laravel 5.1 Session,Laravel 5.1 String,Laravel 5.1 URL,Laravel 5.1 UnitTest,Laravel 5.1 Validation,Laravel 5.1 View">
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="assets/css/foundation.min.css" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/page.css" />
 </head>
 <body>
-	<h1>Hello world</h1>
+    <div class="off-canvas-wrapper wrapper-container">
+        <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+            <div class="off-canvas position-left sidebar-canvas" id="offCanvasLeft" data-off-canvas data-position="left">
+                <button class="close-button" aria-label="Close menu" type="button" data-close>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <ul class="mobile-ofc vertical menu">
+                    <li>
+                        <button class="warning hollow button check-all-button">Check All</button>
+                    </li>
+                    <li>
+                        <ul class="submenu menu vertical mobile-cmd-cell" data-submenu>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="off-canvas-content" data-off-canvas-content>
+                <div class="title-bar hide-for-medium">
+                    <div class="title-bar-left">
+                        <button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
+                    </div>
+                </div>
+            </div>
+            <a href="#top" id="top-button" title="Top"><i class="icon-arrow-up"></i></a>
+            <a href="#" class="comments-toggle" title="Toggle Code Comments"><i class="icon-eye-close"></i></a>
+            <div class="row full-width">
+                <div class="large-2 columns code-column sidebar">
+                    <h5 class="sidebar-title">Knowledge Base</h5>
+                    <hr class="horizonal-line">
+                    <div class="show-for-medium">
+                        <button class="warning hollow button check-all-button">Check All</button>
+                        <div class="clearfix"></div>
+                        <ul class="sidebar-menu">
+                        </ul>
+                        <div class="clearfix"></div>
+                        <hr class="horizonal-line">
+                    </div>
+                </div>
+                <div class="large-10 columns code-column code-container">
+                    <div class="grid">
+                        
+                        <section class="cmd-description grid-item">
+                            <h4><a name="sql" href="#sql">SQL</a></h4>
+                            <h6>Basic Database Creation and deletion</h6>
+                            <pre class="prettyprint lang-php">
+mysql -u root -p
+CREATE DATABASE gallery;
+GRANT ALL PRIVILEGES ON gallery.* TO 'user'@'localhost' IDENTIFIED BY "password";
+FLUSH PRIVILEGES;
+USE gallery;
+DROP DATABASE gallery;
+DROP DATABASE IF EXISTS gallery;
+SHOW DATABASES;
+EXIT;
+                            </pre>
+
+                            <h6>Migrate site</h6>
+                            <pre class="prettyprint lang-php">
+UPDATE wp_options SET option_value = replace(option_value, 'http://oldsite.com', 'http://newsite.com') WHERE option_name = 'home' OR option_name = 'siteurl';
+UPDATE wp_posts SET guid = replace(guid, 'http://oldsite.com', 'http://newsite.com');
+UPDATE wp_posts SET post_content = replace(post_content, 'http://oldsite.com', 'http://newsite.com');
+UPDATE wp_postmeta SET meta_value = replace(meta_value,'http://oldsite.com', 'http://newsite.com');
+                            </pre>
+
+                            <h6>Backup</h6>
+                            <pre class="prettyprint lang-php">
+//back up a single database
+mysqldump database_name > database_name.sql
+// back up all of the databases on a server:
+mysqldump --all-databases > all_databases.sql
+// restore database backup
+mysql database_name < database_name.sql
+//restore a single database from dump of all the databases
+mysql --one-database database_name < all_databases.sql
+                            </pre>
+                        </section>
+
+                        <section class="cmd-description grid-item">
+                            <h4><a name="wordpress" href="#wordpress">WordPress</a></h4>
+                            <h6>WP Cli Installation</h6>
+                            <pre class="prettyprint lang">
+curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+php wp-cli.phar --info
+chmod +x wp-cli.phar
+sudo mv wp-cli.phar /usr/local/bin/wp
+wp --info
+wp cli update
+wp help param-command
+                            </pre>
+
+                            <h6>Basic Command</h6>
+                            <pre class="prettyprint lang-php">
+wp core download [--path=path] [--locale=] [--version=] [--skip-content] [--force] --skip-plugins[=<plugin>] --skip-themes[=]
+wp core config --dbhost=localhost --dbuser=root --dbpass=user_password --dbname=database_name
+wp core install --url=example.com --title=Example --admin_user=supervisor --admin_password=strongpassword --admin_email=info@example.com
+wp core check-update
+                            </pre>
+
+                            <h6>Base command</h6>
+                            <pre class="prettyprint lang-php">
+// wordpress core
+wp core version
+wp core update [--version=4.6] [--force]
+wp db export
+wp option update home newdomain.com
+wp option update siteurl newdomain.com
+wp config list
+wp config set WP_DEBUG true --raw
+wp config set FS_METHOD direct
+wp config get WP_DEBUG
+wp config delete COOKIE_DOMAIN
+                            </pre>
+
+                            <h6>Plugin command</h6>
+                            <pre class="prettyprint lang-php">
+wp plugin list
+wp plugin install plugin_name
+wp plugin activate plugin_name
+wp plugin update plugin_name
+wp plugin deactivate
+wp plugin delete plugin_name
+wp plugin uninstall plugin_name [--skip-delete]
+wp plugin search jetpack --fields=name,version,slug,rating,num_ratings
+
+wp theme list
+wp theme install theme_name
+wp theme update theme_name
+wp theme activate theme_name
+wp theme delete theme_name
+wp theme search photo --per-page=6
+// wordpress post
+wp post create --post_type=page --post_status=publish --post_title='My test post' --post_content='This is a test post'
+wp post delete 18
+                            </pre>
+
+                        </section>
+
+                        <section class="cmd-description grid-item">
+                            <h4><a name="wpfiles" href="#wpfiles">WP Files and Guide</a></h4>
+                            <h6><a target="_blank" href="https://snipsave.com/bani/#/snippet/uOItIv2ioy5FyhE2gx">.htaccess</a></h6>
+                            <h6><a target="_blank" href="https://snipsave.com/bani/#/snippet/qssQDLAR1dOMVGy6d0">Rename wp-content</a></h6>
+                            <h6><a target="_blank" href="https://snipsave.com/bani/#/snippet/MAFQoD6d6LwTvklsFl">Inject script and style</a></h6>
+                            <h6><a target="_blank" href="https://snipsave.com/bani/#/snippet/ptVZcCfCEBmvVkFtSu">Change WP logo on login page</a></h6>
+                            <h6><a target="_blank" href="https://snipsave.com/bani/#/search/tags:Custom%20login">Customize login page</a></h6>
+                        </section>
+
+                        <section class="cmd-description grid-item">
+                            <h4><a name="wpreference" href="#wpreference">WP Reference</a></h4>
+                            <pre class="prettyprint lang-php">
+wp_enqueue_script( string $handle, string $src = '', array $deps = array(), string|bool|null $ver = false, bool $in_footer = false )
+wp_enqueue_style( string $handle, string $src = '', array $deps = array(), string|bool|null $ver = false, string $media = 'all' )
+                            </pre>
+                        </section>
+
+                        <section class="cmd-description grid-item">
+                            <h4><a name="qode" href="#qode">Bridge Theme &amp; Others</a></h4>
+                            <h6><a target="_blank" href="https://snipsave.com/bani/#/snippet/nZHsiLSchD5MTjlPEt">Utilities</a></h6>
+                            <h6><a target="_blank" href="https://snipsave.com/bani/#/snippet/DbYnJ3VZMbexGL09NB">Custom Grid</a></h6>
+                            <h6><a target="_blank" href="https://snipsave.com/bani/#/snippet/i8ec5wvCaQD0HB2LOZ">Custom Helper</a></h6>
+                            <h6><a target="_blank" href="https://snipsave.com/bani/#/snippet/Atng8gMfvrJIGeXL6f">Advanced tab style</a></h6>
+                        </section>
+
+                    </div>
+                    <!-- Last -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/jquery.highlight-4.js"></script>
+<script src="assets/js/google-code-prettify/prettify.js"></script>
+<script src="assets/js/foundation.min.js"></script>
+<script src="assets/js/masonry.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
 </html>
+
+<!-- <section class="cmd-description grid-item">
+    <h4><a name="sql" href="#sql">SECTION</a></h4>
+    <h6>Subsection</h6>
+    <pre class="prettyprint lang-php">
+    </pre>
+</section> -->
