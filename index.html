@@ -149,6 +149,14 @@ wp post create --post_type=page --post_status=publish --post_title='My test post
 wp post delete 18
                             </pre>
 
+                            <h6>Custom installation</h6>
+                            <pre class="prettyprint lang-php">
+// bridge
+wp theme install https://drive.google.com/uc?id=1WsnTUornvo5ndgZxd6xtv8KmAfXbbtz7&export=download --activate
+// bridge child
+wp theme install https://drive.google.com/uc?id=16uSXTnOq_-6Y3QUv2cEWbpYJA00sO0uP&export=download --activate
+                            </pre>
+
                         </section>
 
                         <section class="cmd-description grid-item">
@@ -200,6 +208,13 @@ sudo apt-get install libapache2-mod-php7.1
 cd /tmp
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
+                            </pre>
+
+                            <h6>NodeJS</h6>
+                            <pre class="prettyprint lang-php">
+sudo apt-get install python-software-properties
+curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+sudo apt-get install nodejs
                             </pre>
                         </section>
 
