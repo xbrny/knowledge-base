@@ -250,12 +250,23 @@ sudo service apache2 restart
 mysql -u root
 CREATE DATABASE wpdev_;
 yo wordpress
+wp rewrite structure '/%postname%/'
+wp theme install oceanwp --activate
 wp theme delete twentyeleven twentyfifteen twentyfourteen twentyseventeen twentysixteen twentyten twentythirteen twentytwelve
 wp plugin uninstall hello
-wp theme install oceanwp --activate
-wp plugin elementor --activate
 wp plugin install ocean-extra --activate
+wp plugin install elementor --activate
+wp plugin install caldera-forms --activate
+wp plugin install essential-addons-for-elementor-lite --activate
+wp media import ~/Pictures/**\/*.jpg
 wp post create --post_type=page --post_status=publish --post_title='Contact'
+wp post list --post_type=page
+wp menu create "Main Menu"
+wp menu location assign main-menu main_menu
+wp menu item add-post main-menu 3 --title="Home"
+wp menu item add-custom main-menu Service '#'
+wp menu item list main-menu
+wp menu item delete 45
                             </pre>
                         </section>
 
