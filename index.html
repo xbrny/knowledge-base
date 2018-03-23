@@ -215,6 +215,8 @@ sudo mv composer.phar /usr/local/bin/composer
 sudo apt-get install python-software-properties
 curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 sudo apt-get install nodejs
+                            </pre>
+                            
                             <h6>YeoPress</h6>
                             <pre class="prettyprint lang-php">
 sudo apt-get install nodejs
@@ -259,6 +261,7 @@ wp plugin install elementor --activate
 wp plugin install caldera-forms --activate
 wp plugin install essential-addons-for-elementor-lite --activate
 wp media import ~/Pictures/**\/*.jpg
+wp post delete 2 --force
 wp post create --post_type=page --post_status=publish --post_title='Contact'
 wp post list --post_type=page
 wp menu create "Main Menu"
