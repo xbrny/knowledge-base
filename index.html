@@ -212,11 +212,12 @@ sudo mv composer.phar /usr/local/bin/composer
 
                             <h6>NodeJS</h6>
                             <pre class="prettyprint lang-php">
-sudo apt-get install python-software-properties
-curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
-sudo apt-get install nodejs
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+command -v nvm
+nvm install node
+nvm run node --version
                             </pre>
-                            
+
                             <h6>YeoPress</h6>
                             <pre class="prettyprint lang-php">
 sudo apt-get install nodejs
