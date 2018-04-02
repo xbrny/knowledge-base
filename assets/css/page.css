@@ -159,6 +159,15 @@ ul.sidebar-menu li {
   margin: 3px;
   font-size: 13px;
 }
+ul.sidebar-menu.laravel li {
+  width: 90%;
+  font-size: 10px;
+}
+ul.sidebar-menu.laravel li a {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
 .sidebar-bottom li i {
   display: inline-block;
   width: 20px;
