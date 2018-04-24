@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="@summer">
+    <title>Knowledgebase - Admin Bar</title>
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="assets/css/foundation.min.css" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/page.css" />
+</head>
+<body>
+    <div class="off-canvas-wrapper wrapper-container">
+        <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+            <div class="off-canvas position-left sidebar-canvas" id="offCanvasLeft" data-off-canvas data-position="left">
+                <button class="close-button" aria-label="Close menu" type="button" data-close>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <ul class="mobile-ofc vertical menu">
+                    <li>
+                        <button class="warning hollow button check-all-button">Check All</button>
+                    </li>
+                    <li>
+                        <ul class="submenu menu vertical mobile-cmd-cell" data-submenu>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="off-canvas-content" data-off-canvas-content>
+                <div class="title-bar hide-for-medium">
+                    <div class="title-bar-left">
+                        <button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
+                    </div>
+                </div>
+            </div>
+            <a href="#top" id="top-button" title="Top"><i class="icon-arrow-up"></i></a>
+            <a href="#" class="comments-toggle" title="Toggle Code Comments"><i class="icon-eye-close"></i></a>
+            <div class="row full-width">
+                <div class="large-2 columns code-column sidebar">
+                    <h5 class="sidebar-title">Knowledge Base</h5>
+                    <hr class="horizonal-line">
+                    <div class="show-for-medium">
+                        <button class="warning hollow button check-all-button">Check All</button>
+                        <div class="clearfix"></div>
+                        <ul class="sidebar-menu laravel">
+                        </ul>
+                        <div class="clearfix"></div>
+                        <hr class="horizonal-line">
+                    </div>
+                </div>
+                <div class="large-10 columns code-column code-container">
+                    <div class="grid">
+                        <section class="cmd-description grid-item">
+                            <h4><a name="dashboard" href="#dashboard">Dashboard</a></h4>
+                            <h6>Hook</h6>
+                            <pre class="prettyprint lang-php">
+// WordPress toolbar
+admin_bar_menu :( $wp_admin_bar ) :wp-includes/class-wp-admin-bar.php
+$nodes - $bound - $user - add_node() - remove_node() - add_menu() -remove_menu() - add_group() - get_node() - get_nodes()
+// This action hook is called at the very end of initialization.
+admin_bar_init
+// This action hook is called at the end of the public add_menus() method.
+add_admin_bar_menus
+
+
+                            </pre>
+                        </section>
+
+                        <section class="cmd-description grid-item">
+                            <h4><a name="utilities" href="#utilities">Utilities</a></h4>
+                            <pre class="prettyprint lang-php">
+// Wrap in pre tag
+print_r( $GLOBALS[ 'menu' ], TRUE)
+
+                            </pre>
+                        </section>
+
+
+                    </div>
+                    <!-- Last -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/jquery.highlight-4.js"></script>
+<script src="assets/js/google-code-prettify/prettify.js"></script>
+<script src="assets/js/foundation.min.js"></script>
+<script src="assets/js/masonry.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
+
+<!-- <section class="cmd-description grid-item">
+    <h4><a name="sql" href="#sql">SECTION</a></h4>
+    <h6>Subsection</h6>
+    <pre class="prettyprint lang-php">
+    </pre>
+</section> -->
